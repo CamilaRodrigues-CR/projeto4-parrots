@@ -1,10 +1,11 @@
+
 body {
     background-color: #eef9bf;
+    font-family: 'Roboto', sans-serif;
     width: 1110px;
 }
 .titulo {
     margin-bottom: 80px;
-    
     display: flex;
     align-items: center;
     justify-content: center;   
@@ -18,34 +19,74 @@ h1{
 }
 
 .container {
+    width: 1020px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 }
-.cartas{
-    width: 117px;
-    height: 146px;
-}
 
-.carta {
+  .card {
     width: 117px;
     height: 146px;
     margin: 10px 5px;
     border-radius: 5px;
     border: 1px solid #99cea8;
     background-color: #a7e9af;
+    position: relative;
+  }
 
+  .face {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
     position: absolute;
     backface-visibility: hidden;
     transition: all .5s;
     transform-style: preserve-3d;
-}
+  }
+  
+  .front-face {
+    transform: rotateY(180deg);
+    position: absolute;
+    z-index: 1;
+  }
 
-.carta img {
+  .virada .front-face {
+    transform: rotateY(0deg);
+  }
+
+  .virada .back-face {
+    transform: rotateY(-180deg);
+  }
+
+  .card img {
     width: 100px;
     height: 100px;   
-    position: absolute;
     top: 20px;
     left: 10px;
+    position: absolute;
 }
+
+@media screen and (max-width: 340px) {
+    body {
+      width: 335px;
+    }
+
+    h1{
+        width: 315px;
+        height: 63px;
+        font-size: 36px;
+    }
+
+    .container {
+        display: flex ;
+      flex-direction: column;
+    }
+  }
