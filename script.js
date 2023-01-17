@@ -68,12 +68,12 @@ function destribuirCartas() {
     for(let i = 0; i < baralho.length; i++){
         cartaTemplate +=
         `
-            <li class="card" onclick="virar(this)" >
-                <div class="back-face face">
+            <li class="card" onclick="virar(this)" data-test="card" >
+                <div class="back-face face" data-test="face-down-image">
                     <img src="imagens/back.png">
                  </div>
             
-                <div class="front-face face">
+                <div class="front-face face" data-test="face-up-image">
                     <img src='imagens/${baralho[i]}.gif'>
                 </div>
                 
